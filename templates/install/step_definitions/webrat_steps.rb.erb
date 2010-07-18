@@ -43,8 +43,7 @@ end
 #     | Note           | Nice guy   |
 #     | Wants Email?   |            |
 #
-# TODO: Add support for checkbox, select og option
-# based on naming conventions.
+# TODO: Add support for checkbox, select, or option based on naming conventions.
 #
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
@@ -56,7 +55,7 @@ When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
   select(value, :from => field)
 end
 
-# Use this step in conjunction with Rail's datetime_select helper. For example:
+# Use this step in conjunction with Rails' datetime_select helper. For example:
 # When I select "December 25, 2008 10:00" as the date and time
 When /^(?:|I )select "([^"]*)" as the date and time$/ do |time|
   select_datetime(time)
@@ -75,9 +74,9 @@ When /^(?:|I )select "([^"]*)" as the "([^"]*)" date and time$/ do |datetime, da
   select_datetime(datetime, :from => datetime_label)
 end
 
-# Use this step in conjunction with Rail's time_select helper. For example:
+# Use this step in conjunction with Rails' time_select helper. For example:
 # When I select "2:20PM" as the time
-# Note: Rail's default time helper provides 24-hour time-- not 12 hour time. Webrat
+# Note: Rails' default time helper provides 24-hour time-- not 12 hour time. Webrat
 # will convert the 2:20PM to 14:20 and then select it.
 When /^(?:|I )select "([^"]*)" as the time$/ do |time|
   select_time(time)
@@ -90,7 +89,7 @@ When /^(?:|I )select "([^"]*)" as the "([^"]*)" time$/ do |time, time_label|
   select_time(time, :from => time_label)
 end
 
-# Use this step in conjunction with Rail's date_select helper.  For example:
+# Use this step in conjunction with Rails' date_select helper.  For example:
 # When I select "February 20, 1981" as the date
 When /^(?:|I )select "([^"]*)" as the date$/ do |date|
   select_date(date)
